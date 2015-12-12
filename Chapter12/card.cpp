@@ -9,6 +9,7 @@ struct Card{
 	Card ();
 	Card (int s, int r);
 	void print () const;
+	bool equals(const Card& c2) const;
 };
 
 Card::Card(){
@@ -17,6 +18,10 @@ Card::Card(){
 
 Card::Card(int s, int r){
 	suit = s; rank = r;
+}
+
+bool Card::equals (const Card& c2) const{
+	return (rank == c2.rank && suit == c2.suit);
 }
 
 void Card::print () const{
@@ -47,6 +52,12 @@ void Card::print () const{
 int main(){
 	Card card (1, 11);
 	card.print();
+
+	Card card2(1,11);
+
+	if (card.equals(card2)){
+		cout << "Yup, that's the same card boss." << endl;
+	}
 	return 0;
 }
 
